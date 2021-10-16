@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -74,9 +75,10 @@ public class OrderAndBillingController {
 		
 	}
 	
-	@DeleteMapping("/orders")
-	public void deleteOder(@RequestBody Order order) {
+	@DeleteMapping("/orders/{id}")
+	public void deleteOder(@PathVariable long id) {
 		
+		Order order = this.orderRepository.findById(id).get();
 		this.orderRepository.delete(order);
 		
 	}
