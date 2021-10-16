@@ -21,7 +21,7 @@ import com.accenture.ws.impl.RegularBill;
 import com.accenture.ws.repository.OrderRepository;
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api")
 @Transactional
 public class OrderAndBillingController {
 
@@ -31,6 +31,10 @@ public class OrderAndBillingController {
 	
 	private CafeClerk clerk;
 	
+	@GetMapping("/")
+	public String home() {
+		return "Hello World! Welcome to Kopeetearia API";
+	}
 	
 	@GetMapping("/setclerk")
 	public void orderAndBilling(@RequestBody CafeClerk clerk) {
