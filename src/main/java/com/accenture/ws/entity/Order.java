@@ -12,6 +12,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="`order`")
 public class Order {
+	
+	private final double DISCOUNT_PERCENTAGE = 5.0; //added this line to fix code smell in sonar qube
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +21,7 @@ public class Order {
 	private String orderName;
 	private double price;
 	private boolean isDiscounted;
-	private double discountPercentage = 5.0;
+	private double discountPercentage = DISCOUNT_PERCENTAGE;
 	
 	/**
 	 * 
@@ -81,6 +83,15 @@ public class Order {
 	public double getDiscountPercentage() {
 		return discountPercentage;
 	}
+	
+	
+	
+	/*
+	 * 
+	 *  Override equals and hashCode methods for easy JUnit test implementation
+	 * 
+	 * 
+	 */
 
 	@Override
 	public int hashCode() {
@@ -89,16 +100,24 @@ public class Order {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		Order other = (Order) obj;
-		return Double.doubleToLongBits(discountPercentage) == Double.doubleToLongBits(other.discountPercentage)
-				&& id == other.id && isDiscounted == other.isDiscounted && Objects.equals(orderName, other.orderName)
-				&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price);
+		return Double.doubleToLongBits(
+				discountPercentage) == Double.doubleToLongBits(
+						other.discountPercentage)
+				&& id == other.id 
+				&& isDiscounted == other.isDiscounted 
+				&& Objects.equals(orderName, other.orderName)
+				&& Double.doubleToLongBits(
+						price) == Double.doubleToLongBits(other.price);
 	}
 	
 	

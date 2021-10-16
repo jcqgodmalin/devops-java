@@ -9,6 +9,7 @@ public class DiscountedBill extends OrderBill {
 		super(clerk);
 	}
 
+	@Override
 	public double getTotalBill() {
 		double total = 0;
 		final double DISCOUNT = .05;
