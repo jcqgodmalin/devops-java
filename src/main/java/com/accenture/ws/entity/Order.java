@@ -13,14 +13,14 @@ import javax.persistence.Table;
 @Table(name="`order`")
 public class Order {
 	
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String orderName;
 	private double price;
 	private boolean isDiscounted;
-	private final double discountPercentage = 5.0;  //set this variable to constant to resolve the code smell in SonarQube
+	//set this variable to constant to resolve the code smell in SonarQube
+	private final double discountPercentage = 5.0; 
 	
 	/**
 	 * 
