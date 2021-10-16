@@ -13,7 +13,6 @@ import javax.persistence.Table;
 @Table(name="`order`")
 public class Order {
 	
-	private final double DISCOUNT_PERCENTAGE = 5.0; //added this line to fix code smell in sonar qube
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +20,7 @@ public class Order {
 	private String orderName;
 	private double price;
 	private boolean isDiscounted;
-	private double discountPercentage = DISCOUNT_PERCENTAGE;
+	private final double discountPercentage = 5.0;  //set this variable to constant to resolve the code smell in SonarQube
 	
 	/**
 	 * 
