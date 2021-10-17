@@ -25,7 +25,7 @@ import com.accenture.ws.repository.OrderRepository;
 @RestController
 @RequestMapping("/api")
 @Transactional
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:4200")
 public class OrderAndBillingController {
 
 	
