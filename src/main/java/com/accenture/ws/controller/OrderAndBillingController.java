@@ -32,14 +32,8 @@ public class OrderAndBillingController {
 	@Autowired
 	private OrderRepository orderRepository;
 	
-	private CafeClerk clerk;
+	private CafeClerk clerk = new CafeClerk("Jane Doe");
 	
-	@GetMapping("/")
-	public String home() {
-		return "Hello World! Welcome to Kopeetearia API";
-	}
-	
-	@GetMapping("/setclerk")
 	public void orderAndBilling(@RequestBody CafeClerk clerk) {
 		this.clerk = clerk;
 	}

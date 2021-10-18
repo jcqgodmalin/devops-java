@@ -16,7 +16,8 @@ public class DiscountedBill extends OrderBill {
 		
 		for(Order orders : this.orderList) {
 			if(orders.isDiscounted()) {
-				total += (orders.getPrice() * DISCOUNT);
+				double totalDiscount = (orders.getPrice() * DISCOUNT);
+				total += (orders.getPrice() - totalDiscount);
 			}else {
 				total += orders.getPrice();
 			}
