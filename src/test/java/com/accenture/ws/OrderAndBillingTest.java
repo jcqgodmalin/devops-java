@@ -78,7 +78,7 @@ class OrderAndBillingTest {
 		
 		this.order = orderRepository.findTopByOrderByIdDesc();
 		
-		controller.deleteOder(this.order.getId());
+		controller.deleteOder(this.order);
 		
 		List<Order> orders = this.controller.getOrderList();
 		
