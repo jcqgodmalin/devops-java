@@ -1,9 +1,6 @@
-package com.accenture.ws.impl;
+package com.accenture.ws.entity;
 
 import java.util.List;
-
-import com.accenture.ws.entity.CafeClerk;
-import com.accenture.ws.entity.Order;
 
 public abstract class OrderBill {
 	

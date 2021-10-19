@@ -17,14 +17,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.accenture.ws.entity.CafeClerk;
 import com.accenture.ws.entity.Order;
+import com.accenture.ws.entity.OrderBill;
 import com.accenture.ws.impl.DiscountedBill;
-import com.accenture.ws.impl.OrderBill;
 import com.accenture.ws.impl.RegularBill;
 import com.accenture.ws.repository.OrderRepository;
 
 @RestController
 @RequestMapping("/api")
 @Transactional
+
+//CrossOrigin for dev purposes only.
 @CrossOrigin(origins = "http://localhost:4200")
 public class OrderAndBillingController {
 
@@ -32,10 +34,10 @@ public class OrderAndBillingController {
 	@Autowired
 	private OrderRepository orderRepository;
 	
-	private CafeClerk clerk = new CafeClerk("Jane Doe");
+	private CafeClerk clerk = new CafeClerk("Janiboi");
 	
-	public void orderAndBilling(@RequestBody CafeClerk clerk) {
-		this.clerk = clerk;
+	public OrderAndBillingController() {
+		//default constructor
 	}
 	
 	/*

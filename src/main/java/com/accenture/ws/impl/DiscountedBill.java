@@ -2,6 +2,7 @@ package com.accenture.ws.impl;
 
 import com.accenture.ws.entity.CafeClerk;
 import com.accenture.ws.entity.Order;
+import com.accenture.ws.entity.OrderBill;
 
 public class DiscountedBill extends OrderBill {
 
